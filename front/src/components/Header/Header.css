@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #383838;
+    padding: 20px;
+    color: aliceblue;
+}
+
+.links-ref{
+    text-decoration: none;
+    color: aliceblue;
+    padding: 20px;
+
+}
+
+.logo{
+    text-decoration: none;
+    color: aliceblue;
+}

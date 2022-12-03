@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
+require("dotenv").config();
 const mongoose = require("mongoose");
-const authRoute = require("./routes/auth")
-const authUser = require("./routes/users")
+const routes = require("./routes")
 
 
-dotenv.config()
+
+
+
+
 app.use(express.json())
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -17,15 +19,16 @@ app.use(function(req, res, next) {
     next();
 });
 
-mongoose.connect("mongodb://127.0.0.1:27017", {
+const url = process.env.CONNECT_URL;
+
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
     .then(console.log("Conectado a MongoDb"))
     .catch((err) => console.log(err))
 
-    app.use("/auth", authRoute)
-    app.use("/users", authUser)
+    app.use("/api", routes);
 
 
     app.listen("8080 ", () => {

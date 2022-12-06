@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
+require("dotenv").config();
 const mongoose = require("mongoose");
-const authRoute = require("./routes/auth")
-const authUser = require("./routes/users")
+const routes = require("./routes")
+const User = require('./model/user'),
+bodyParser = require('body-parser'),
+jsonwebtoken = require("jsonwebtoken");
 
 
-dotenv.config()
 app.use(express.json())
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -16,18 +17,34 @@ app.use(function(req, res, next) {
     );
     next();
 });
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017", {
+const url = process.env.CONNECT_URL;
+
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
     .then(console.log("Conectado a MongoDb"))
     .catch((err) => console.log(err))
 
-    app.use("/auth", authRoute)
-    app.use("/users", authUser)
+    app.use("/api", routes);
 
 
     app.listen("8080 ", () => {
         console.log("backend ejecutandose")
     })
+
+    app.use(function(req, res, next) {
+      if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+        jsonwebtoken.verify(req.headers.authorization.split(' ')[1], 'RESTFULAPIs' , function(err, decode) {
+          if (err) req.user = undefined;
+          req.user = decode;
+          next();
+        });
+      } else {
+        req.user = undefined;
+        next();
+      }
+    });

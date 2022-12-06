@@ -1,21 +1,9 @@
-const router = require("express").Router()
-const User = require("../model/user")
-const bcrypt = require("bcrypt")
+const route = require("express").Router();
+const userHandlers = require('../controllers/userController.js');
 
-router.post("/register", async(req, res) => {
-    try {
+    route.post('/register', userHandlers.register);
+    route.post('/sign_in', userHandlers.sign_in);
+    route.post('/profile', userHandlers.profile)
 
-    } catch {
-
-    }
-})
-
-router.post("/login", async(req, res) => {
-    try {
-
-    } catch {
-
-    }
-})
-
-module.exports = router
+    
+module.exports = route;

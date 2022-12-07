@@ -1,0 +1,19 @@
+#containerProduct{
+    display: flex;
+    flex-flow: row;
+}
+.card{
+    background-color: gainsboro;
+    margin: 5px;
+    width: 200px;
+}
+.imageProduct{
+    width: 200px;
+    height: 200px;
+}
+.links{
+    color: black;
+    text-decoration: none;
+    
+    
+}

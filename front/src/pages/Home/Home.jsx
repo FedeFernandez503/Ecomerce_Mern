@@ -3,7 +3,7 @@ import "./Home.css"
 export function Home() {
     return (
         <div className="container">
-            <h1>HOME</h1>
+            <h3>Matea Libre</h3>
         </div>
     )
 }

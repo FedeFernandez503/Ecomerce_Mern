@@ -1,19 +1,29 @@
 .header{
     display: flex;
     justify-content: space-between;
-    background-color: #383838;
+    background-color: black;
     padding: 20px;
-    color: aliceblue;
+    color: dodgerblue;
 }
 
 .links-ref{
     text-decoration: none;
-    color: aliceblue;
+    font-weight: 900;
+    color: dodgerblue;
     padding: 20px;
-
+    text-decoration: wavy double blueviolet;
+    text-shadow: 
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(59, 71, 177),
+    0 0 82px rgb(59, 71, 177),
+    0 0 92px rgb(59, 71, 177),
+    0 0 102px rgb(59, 71, 177),
+    0 0 151px rgb(59, 71, 177);;
 }
 
 .logo{
     text-decoration: none;
-    color: aliceblue;
+    color: dodgerblue;
 }

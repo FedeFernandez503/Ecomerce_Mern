@@ -11,12 +11,7 @@ export function Footer () {
          
           <div className='logo'> 
           </div>
-          <nav>
-              <Link className="links-pie" to="/login">Login</Link>
-              <Link className="links-pie" to="/register">Register</Link>
-              <Link className="links-pie" to="/user">User</Link>
-              <Link className="links-pie" to="/products">Product</Link>
-            </nav>
+          
             <div className="div-icons">
             <a className="link" href="https://es-la.facebook.com/"><BsFacebook className='icon' /></a>
             <a href="https://www.instagram.com/" className="link"><RiInstagramFill className='icon' /></a>

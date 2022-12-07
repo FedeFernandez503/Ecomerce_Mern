@@ -6,7 +6,7 @@
 
 .footer{
     display: flex;
-    background-color: #383838;
+    background-color: black;
     align-items: center;
     justify-content: center;
     color: aliceblue;
@@ -22,7 +22,7 @@
 
 .div-icons{
    padding: 10px;
-   margin: 0px 0px 0px 60%;
+   margin: 0px 30% 0px 30%;
 
 }
 
@@ -35,3 +35,9 @@
     color: rgb(0, 119, 255);
 }
 
+p{
+    color: dodgerblue;
+    background-color: black;
+    text-decoration: wavy double blueviolet;
+
+}

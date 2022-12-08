@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+
+}
+
+.containerError{ 
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh);
+}
+
+
+h2{
+    font-size: 100px;
+    margin-top: 50px;
+    margin-bottom: -10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.imgError{
+    background-color: black;
+    padding:10% 15%;
+    width: 70%;
+}

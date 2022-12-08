@@ -4,14 +4,27 @@ body{
 }
 
 
-.container{ 
-    background-color: ghostwhite;
+.containerHome{ 
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     min-height: calc(100vh);
 }
 
-h3{text-align: center;
-    font-size: 35px;
-    margin-top: 150px;
+.h3Home{
+    color: dodgerblue;
+    text-align: center;
+    font-size: 40px;
+    margin: 70px 70px;
+}
+
+.imgHome{
+    background-color: whitesmoke;
+}
+
+.h4Home{
+    color: dodgerblue;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
 }

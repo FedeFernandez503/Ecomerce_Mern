@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import "./Register.css"
 export function Register({ user }) {
     if (user.isLogin) {
         return <Navigate to={"/user/:_id"} />
     }
+    const navigate = useNavigate()
     const parrafo = document.getElementById("alertParrafo");
     const [form, setForm] = useState({ /*Por defecto, el estado del formulario aparecerá con una cadena vacía. Cambiaremos sus valores mediante la función llamada "updateForm". Esta se encargará de setear el estado con los valores ingresados en los inputs desde el frontend de la aplicación. Esto lo haremos con una función "onChange que se encontrara dentro de cada input la cual se encargara de tomar su valor para luego enviar los valores al servidor en formato json. a la ruta (/api/signup) esta ruta se encargará de procesar los datos provenientes de este archivo frontend "signup.jsx" Y creara un nuevo usuario con los valores que introduzcamos en los campos del formulario." */
         username: "",
@@ -36,17 +37,19 @@ export function Register({ user }) {
                 },
                 body: JSON.stringify(newPerson),
             });
+
             const data = await response.json();
-            console.log(data)
+            
             if (response.ok) {
-                parrafo.textContent = data;
+                parrafo.textContent = "Cuenta creada correctamente";
                 parrafo.style.backgroundColor = "green";
                 parrafo.style.color = "white";
+                return navigate("/products")
+
             } else {
-                parrafo.textContent = "Username or email already belong to another account.";
+                parrafo.textContent = "Email o numero telefonico ya registrado en esta pagina ";
                 parrafo.style.color = "white";
                 parrafo.style.background = "red";
-                console.log(data);
             }
         } catch (e) {
             console.log(e);
@@ -61,10 +64,12 @@ export function Register({ user }) {
                     className="form-inputs"
                     type="text"
                     placeholder="Nombre de usuario"
+                    required
                     value={form.username}
                     onChange={(e) => updateForm({ username: e.target.value })}
                 />
                 <input
+                    required
                     className="form-inputs"
                     type="text"
                     placeholder="Apellido"
@@ -73,6 +78,7 @@ export function Register({ user }) {
 
                 />
                 <input
+                    required
                     className="form-inputs"
                     type="email"
                     placeholder="Email"
@@ -81,6 +87,7 @@ export function Register({ user }) {
 
                 />
                 <input
+                    required
                     className="form-inputs"
                     type="password"
                     placeholder="Password"
@@ -89,6 +96,7 @@ export function Register({ user }) {
 
                 />
                 <input
+                    required
                     className="form-inputs"
                     type="text"
                     placeholder="Telefono"
@@ -97,6 +105,7 @@ export function Register({ user }) {
 
                 />
                 <input
+                    required
                     className="form-inputs"
                     type="text"
                     placeholder="Pais"
@@ -105,6 +114,7 @@ export function Register({ user }) {
 
                 />
                 <input
+                    required
                     className="form-inputs"
                     type="text"
                     placeholder="Ciudad"
@@ -113,6 +123,7 @@ export function Register({ user }) {
 
                 />
                 <input
+                    required
                     className="form-inputs"
                     type="text"
                     placeholder="Direccion"
@@ -121,11 +132,10 @@ export function Register({ user }) {
 
                 />
                 <button className="button_signup" type="submit">
-                    <span>Sign up!</span>
+                    <span>Crear cuenta</span>
                 </button>
-                <p className="login_link">Already have an account?<Link to="/login" >Login</Link></p>
+                <p  >Already have an account?<Link to="/login" className="login_link" >Login</Link></p>
                 <p id="alertParrafo"></p>
-                <img src="../public/icons/favicon2.jpg" alt="image" />
             </form>
         </div>
     )

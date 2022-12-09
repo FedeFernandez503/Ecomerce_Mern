@@ -15,6 +15,7 @@ import ("./App.css")
 
 
 const App = () => {
+  
   const [user, setUser] = useState({isLogin: false});
   return (
     <div className="app-body">
@@ -27,7 +28,7 @@ const App = () => {
       <Route exact path='/products' element={<Product/>} />
       <Route exact path='/cart' element={<Cart/>} />
       <Route exact path='/Error404' element={<Error404/>} />
-      <Route exact path='/user' element={<PrivateRoute user = {user}><User/></PrivateRoute>} />
+      <Route exact path='/user' element={<User />}/>
       <Route exact path='/cart/user' element={<PrivateRoute user = {user}><CartUser/></PrivateRoute>} />
       <Route path="*" element={<Navigate to="/Error404" />} />
     </Routes>

@@ -1,2 +1,2 @@
-CONNECT_URL = "mongodb+srv://Fede:FNFA4543.js@cluster0.xozhh5u.mongodb.net/EcomerceMern"
+CONNECT_URL = "mongodb+srv://Fede:FNFA4543.js@cluster0.xozhh5u.mongodb.net/EcomerceMern2"
 TOKEN_SECRET = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdCIsInVzZXJuYW1lIjoiTWF4aSIsIl9pZCI6IjYzOTBkNzQ0MTk4OWI4YmI0OGFkYzlkNSIsImlhdCI6MTY3MDQzNjc1MX0.h_Oqy8gwbOM-0A5nE_rVPPfJHjboyTcvUOTLbr49Vb8

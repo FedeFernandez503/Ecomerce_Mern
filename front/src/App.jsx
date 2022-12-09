@@ -10,32 +10,33 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
 import { useState } from "react"
-import { PrivateRoute } from "./routes/PrivateRoute"
-import ("./App.css")
+import PrivateRoutes from "./routes/PrivateRoute"
+import("./App.css")
 
 
 const App = () => {
-  
-  const [user, setUser] = useState({isLogin: false});
+  const [isLogged, setIsLogged] = useState(false)
+  const [user, setUser] = useState({ isLogin: false });
   return (
     <div className="app-body">
-  <Router>
-    <Header/>
-    <Routes>
-      <Route exact path='/' element={<Home/>} />
-      <Route exact path='/login' element={<Login user = {user} setUser={setUser}/>} />
-      <Route exact path='/register' element={<Register user = {user}/>} />
-      <Route exact path='/products' element={<Product/>} />
-      <Route exact path='/cart' element={<Cart/>} />
-      <Route exact path='/Error404' element={<Error404/>} />
-      <Route exact path='/user' element={<User />}/>
-      <Route exact path='/cart/user' element={<PrivateRoute user = {user}><CartUser/></PrivateRoute>} />
-      <Route path="*" element={<Navigate to="/Error404" />} />
-    </Routes>
-    <Footer/>
-  </Router>
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/login' element={<Login user={user} onLogin={setIsLogged} setUser={setUser} />} />
+          <Route exact path='/register' element={<Register user={user} />} />
+          <Route exact path='/products' element={<Product />} />
+          <Route exact path='/cart' element={<Cart />} />
+          <Route exact path='/Error404' element={<Error404 />} />
+          <Route element={<PrivateRoutes Logeado={isLogged} />}>
+            <Route path="/user" element={<User onLogin={setIsLogged} />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/Error404" />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
-)
+  )
 }
 export default App;
 

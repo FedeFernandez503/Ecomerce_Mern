@@ -1,5 +1,6 @@
 jwt = require('jsonwebtoken')
 bcrypt = require('bcrypt')
+const user = require('../model/user');
 const User = require("../model/user")
 
 exports.register = function (req, res) {
@@ -26,7 +27,7 @@ exports.sign_in = function (req, res) {
     if (!user || !user.comparePassword(req.body.password)) { //comparamos la password y el usuario.
       return res.status(401).json({ message: 'Fallo a la hora de logearse Usuario o contraseña es incorrecta' });
     }
-    return res.json({ token: jwt.sign({ username: user.username, lastname: user.lastname, email: user.email, cellPhone: user.cellPhone, Counter: user.Counter, City: user.City, Direction: user.Direction }, 'RESTFULAPIs') }); //Pasamos el jsonwebtoken
+    return res.json({ token: jwt.sign({ _id: user._id, username: user.username, lastname: user.lastname, email: user.email, cellPhone: user.cellPhone, Country: user.Country, City: user.City, Direction: user.Direction }, 'RESTFULAPIs') }); //Pasamos el jsonwebtoken
   });
 };
 
@@ -48,3 +49,11 @@ exports.profile = function (req, res, next) {
     return res.status(401).json({ message: 'Invalid token' });
   }
 };
+
+exports.update = async function (req, res, next) {
+  let data = await User.findOneAndUpdate(
+    req.params,
+    { $set: req.body }, { new: true, projection: { hash_password: 0 } }
+  )
+  res.json(data)
+}

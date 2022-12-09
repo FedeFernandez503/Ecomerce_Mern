@@ -1,4 +1,10 @@
-.form_login{
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh);
+}
+
+.form_login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,13 +15,15 @@
     background-color: #242422;
     color: aliceblue;
 }
-.input_login{
+
+.input_login {
     margin-top: 10px;
     width: 80%;
     padding: 5px;
 }
-.button_login{
-    color: rgb(0, 0, 0) ;
+
+.button_login {
+    color: rgb(0, 0, 0);
     margin-top: 15px;
     border: none;
     padding: 5px;
@@ -24,8 +32,8 @@
     text-decoration: none;
 }
 
-.button_login:hover{
-    color: rgb(255, 255, 255) ;
+.button_login:hover {
+    color: rgb(255, 255, 255);
     background-color: rgba(163, 7, 168, 0.767);
     margin-top: 15px;
     border: none;
@@ -33,7 +41,7 @@
     text-decoration: none;
 }
 
-.signup_link{
+.signup_link {
     text-decoration: none;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);

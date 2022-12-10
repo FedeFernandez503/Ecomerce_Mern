@@ -1,24 +1,16 @@
 .containerHome {
-    background-color: whitesmoke;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/003/031/836/non_2x/realistic-electronic-devices-and-gadgets-in-isometry-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     min-height: calc(100vh);
 }
 
-.h3Home {
-    color: dodgerblue;
+.text-content{
+    display: flex;
     text-align: center;
-    font-size: 40px;
-    margin: 70px 70px;
-}
-
-.imgHome {
-    background-color: whitesmoke;
-}
-
-.h4Home {
-    color: dodgerblue;
-    text-align: center;
+    flex-direction: column;
+    margin: auto;
     font-size: 30px;
-    margin-top: 30px;
 }

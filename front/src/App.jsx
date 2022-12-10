@@ -27,6 +27,7 @@ const App = () => {
           <Route exact path='/register' element={<Register user={user} />} />
           <Route exact path='/products' element={<Product />} />
           <Route exact path='/cart' element={<Cart />} />
+          <Route exact path="/cart/user" element={<CartUser />} />
           <Route exact path='/Error404' element={<Error404 />} />
           <Route element={<PrivateRoutes Logeado={isLogged} />}>
             <Route path="/user" element={<User onLogin={setIsLogged} />} />

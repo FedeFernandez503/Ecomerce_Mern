@@ -3,7 +3,7 @@ import { useNavigate, Navigate } from "react-router";
 import { Link } from "react-router-dom"
 import "./Login.css"
 const Login = (props) => {
-
+  const [loading, setLoading] = useState();
   const parrafo = document.getElementById("parrafoAlert")
 
   const navigate = useNavigate();
@@ -30,8 +30,11 @@ const Login = (props) => {
         body: JSON.stringify(newLogin),
       });
       const data = await response.json();
-      if (response.ok) {
+      setLoading(true);
+      setTimeout(()=>{
+         if (response.ok) {
         localStorage.setItem("token", data?.token)
+        setLoading(false);
         props.onLogin(true)
         return navigate("/user");
       } if (form.password !== data) {
@@ -40,6 +43,7 @@ const Login = (props) => {
       else {
         parrafo.textContent = "Fallo a la hora de logearse correo o contraseña es incorrecta";
       }
+      }, 1500);
     } catch (e) {
       console.log(e);
     }
@@ -66,7 +70,7 @@ const Login = (props) => {
           onChange={(e) => updateForm({ password: e.target.value })}
         />
         <button className="button_login" type="submit">
-          <span>Login</span>
+        {loading ? "Cargando..." : "Login"}
         </button>
         <p id="parrafoAlert"></p>
         <p>No account?<Link to="/signup" className="signup_link">Signup</Link></p>

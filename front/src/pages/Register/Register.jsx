@@ -44,7 +44,7 @@ export function Register({ user }) {
                 parrafo.textContent = "Cuenta creada correctamente";
                 parrafo.style.backgroundColor = "green";
                 parrafo.style.color = "white";
-                return navigate("/products")
+                return navigate("/login")
 
             } else {
                 parrafo.textContent = "Email o numero telefonico ya registrado en esta pagina ";

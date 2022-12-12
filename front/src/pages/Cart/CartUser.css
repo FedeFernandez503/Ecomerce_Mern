@@ -1,0 +1,21 @@
+.container{
+    background: rgb(171, 167, 167);
+}
+#perfilUser{
+    background-color: rgb(49, 47, 47);
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+    color: aliceblue;
+    height: 50px;
+}
+#fede{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+#nameUser{
+    margin-right: 10px;
+    font-size: 25px;
+}

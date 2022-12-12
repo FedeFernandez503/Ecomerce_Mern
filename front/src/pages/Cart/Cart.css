@@ -1,0 +1,72 @@
+#ListOfBuy{
+    margin-left: 200px;
+    display: flex;
+    flex-flow: column;  
+    background-color: gainsboro;
+    width: 600px;
+}
+#titleImageProduct{
+    width: 60px;
+    height: 30px;
+    padding: 0px 30px 0px 10px;
+    border-bottom: 1px solid black;
+}
+#titleNameOfProduct{
+    width: 240px;
+    height: 30px;
+    border-bottom: 1px solid black;
+}
+#titleProductSelected{
+    width: 270px;
+    height: 30px;
+    border-bottom: 1px solid black;
+}
+#imageProduct{
+    width: 60px;
+    height: 50px;
+    padding: 0px 30px 10px 10px;
+}
+.Card{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    height: 60px;
+    font-size: 20px;
+    
+
+}
+#NameOfProduct{
+    width: 240px;
+}
+#ProductSelected{
+    padding-right: 10px;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+#Total{ 
+    border-top: 1px solid black;
+    width: 300px;
+    padding-left: 250px;
+    padding-right: 50px;
+    font-size: 20px;
+}
+#comprar{
+    color: aliceblue;
+    background-color: black;
+    height: 30px;
+    width: 80px;
+    margin: 10px 0px 10px 280px;
+}
+.ModificadoresDeCantidades{
+    height: 30px;
+    width: 30px;
+}
+.iconsModify{
+    height: 20px;
+    width: 20px;
+}
+.iconsModify:hover{
+    color: red;
+}

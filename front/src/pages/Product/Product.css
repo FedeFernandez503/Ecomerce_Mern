@@ -17,3 +17,14 @@
     
     
 }
+.Agregar{
+    height: 20px;
+    width: 20px;
+}
+.Agregar:hover{
+    color: green;
+}
+.datos{
+    border: none;
+    background: gainsboro;
+}

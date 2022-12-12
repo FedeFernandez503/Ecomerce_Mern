@@ -1,5 +1,6 @@
 const Product = require("../model/product")
-const bcrypt = require('bcrypt')
+const Category = require("../model/category")
+
 
 exports.crearProducto = function(req, res) {
     var newProduct = new Product(req.body); //creamos un nuevo producto en la base de datos
@@ -23,11 +24,26 @@ exports.getProduct = async function(req, res) {
     res.status(401).json({ message: 'Fallo a la hora de logearse Usuario o contraseña es incorrecta' });
   }
 };
-exports.getCategory = async function(req, res) {
+exports.getProductName = async function(req, res) {
   try { 
-  const olga = await Product.find({categories: "Procesadores"})
+  const olga = await Product.find(req.body)
   res.json(olga) 
-  } catch {
+} catch {
     res.status(401).json({ message: 'Fallo a la hora'})
-  }
+ }
 };
+exports.productCategory = async (req, res, next) => {
+
+  try {
+      const cat = await Product.find().populate('categories', 'name').distinct('category');
+      res.status(201).json({
+          success: true,
+          cat
+      })
+
+  } catch (error) {
+      console.log(error);
+      next(error);
+  }
+
+}

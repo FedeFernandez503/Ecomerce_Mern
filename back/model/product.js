@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {ObjectId} = mongoose.Schema;
 
 const ProductSchema = new mongoose.Schema({
     image:{
@@ -23,7 +24,8 @@ const ProductSchema = new mongoose.Schema({
         require: true,
     },
     categories:{
-        type: Array,
+        type: ObjectId,
+        ref: "Category",
         require: true,
     }
 }, {

@@ -15,3 +15,12 @@ exports.createCategory = function(req, res) {
       }
     });
 }
+
+exports.getCategories = async function(req, res) {
+  try {
+    const category = await Category.find() 
+    res.json(category)
+    } catch {
+      res.status(401).json({ message: 'error' });
+    }
+  };

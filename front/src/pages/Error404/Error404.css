@@ -1,0 +1,21 @@
+.containerError {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh);
+}
+
+
+.error-text{
+    font-size: 100px;
+    margin-top: 50px;
+    margin-bottom: -10px;
+    color: white;
+    text-align: center;
+}
+
+.imgError {
+    background-color: black;
+    padding: 10% 15%;
+    width: 70%;
+}

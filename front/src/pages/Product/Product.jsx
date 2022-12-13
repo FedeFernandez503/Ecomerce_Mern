@@ -14,7 +14,7 @@ export function Product() {
    
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get('http://localhost:8090/api/products/getProduct')
+            const response = await axios.get('http://localhost:8080/api/products/getProduct')
             setProducts(response.data)
         };
         fetchData()

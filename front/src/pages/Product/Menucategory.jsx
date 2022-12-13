@@ -6,7 +6,7 @@ export function Categories() {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get('http://localhost:8090/api/categories/getCategories')
+            const response = await axios.get('http://localhost:8080/api/categories/getCategories')
             setCategories(response.data)
         };
         fetchData()

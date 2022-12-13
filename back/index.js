@@ -47,6 +47,6 @@ mongoose.connect(url, {
     app.use("/api", routes);
 
 
-    app.listen("8090 ", () => {
+    app.listen("8080 ", () => {
         console.log("backend ejecutandose")
     })
